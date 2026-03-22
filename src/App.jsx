@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Download, Mail, Linkedin, ArrowRight, Award, TrendingUp, Users, Globe, Cpu, BookOpen, Zap } from 'lucide-react';
+import { Download, Mail, Linkedin, ArrowRight, Award, TrendingUp, Users, Globe, Cpu, BookOpen, Zap, CheckCircle2 } from 'lucide-react';
 
 // --- Shared Components ---
 
@@ -244,6 +244,108 @@ const Achievements = () => {
   );
 };
 
+const BookSection = () => (
+  <section id="book" className="py-24 bg-white relative overflow-hidden border-t border-slate-100">
+    <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-slate-200 to-transparent" />
+    <div className="max-w-[1200px] mx-auto px-6 flex flex-col md:flex-row items-center gap-12 lg:gap-20">
+      
+      {/* Book Cover */}
+      <motion.div 
+        initial={{ opacity: 0, x: -30 }} 
+        whileInView={{ opacity: 1, x: 0 }} 
+        viewport={{ once: true }}
+        className="w-full md:w-5/12 flex justify-center"
+      >
+        <div className="relative group">
+          <div className="absolute -inset-4 bg-gradient-to-br from-blue-600 to-purple-600 opacity-20 blur-xl rounded-xl group-hover:opacity-30 transition-opacity duration-500" />
+          <img 
+            src="/optimizing-workflows-cover.png" 
+            alt="Optimizing Project Workflows with AI Book Cover" 
+            className="relative z-10 w-full max-w-[320px] rounded-r-xl rounded-l-sm shadow-2xl shadow-navy/20 border-l-[12px] border-[#D1D5DB] transform group-hover:-translate-y-2 group-hover:rotate-1 transition-all duration-500"
+          />
+        </div>
+      </motion.div>
+
+      {/* Book Description */}
+      <div className="w-full md:w-7/12">
+        <SectionTitle subtitle="Published Work">Optimizing Project Workflows with AI</SectionTitle>
+        
+        <motion.p 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-lg font-medium text-navy mb-4 leading-relaxed"
+        >
+          A Practical Guide to Automating Tasks, Reducing Manual Work, and Driving Efficiency Using AI Tools
+        </motion.p>
+        
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.1 }}
+          className="space-y-4 text-slate-600 mb-8"
+        >
+          <p>
+            Tired of juggling endless tasks, updates, and meetings that never end? It's time to automate the chaos and let your work run itself.
+          </p>
+          <p>
+            In <span className="font-semibold text-navy">Optimizing Project Workflows with AI</span>, digital transformation strategist Oldane Graham reveals how to design smarter systems that free you from repetitive work and help you focus on what really matters — strategy, creativity, and results.
+          </p>
+          <p>
+            Through step-by-step examples, real-world use cases, and downloadable templates, you'll learn how to use Make.com, ChatGPT, and other AI-powered tools to streamline your projects and everyday operations.
+          </p>
+        </motion.div>
+
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.2 }}
+        >
+          <h4 className="font-bold text-navy mb-4">You'll discover how to:</h4>
+          <ul className="space-y-3 mb-8">
+            {[
+              "Identify the right processes to automate (and which to keep human)",
+              "Build smart workflows that connect apps like Slack, Google Sheets, and Jira",
+              "Write powerful prompts that get consistent, reliable results from ChatGPT",
+              "Create human-in-the-loop systems that scale intelligently",
+              "Reduce errors, save hours, and get more done with less effort"
+            ].map((item, idx) => (
+              <li key={idx} className="flex items-start gap-3 text-slate-600">
+                <div className="mt-1 min-w-[20px] text-blue-600">
+                  <CheckCircle2 size={18} />
+                </div>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </motion.div>
+
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.3 }}
+          className="flex flex-col sm:flex-row gap-4 items-center"
+        >
+          <a 
+            href="https://www.amazon.com/Optimising-Project-Workflows-AI-Practical-ebook/dp/B0G44LWVH5/ref=sr_1_1?crid=QB1THMJGAFOM&dib=eyJ2IjoiMSJ9.kk1Qi_lbbse35qNsE3Gsnw.Ic-0qWp3JK0G4xMu0OImL5rWzc7B_blqA6ZoRdRQaGc&dib_tag=se&keywords=Oldane+Graham&qid=1774201084&s=books&sprefix=oldane+graham%2Cstripbooks%2C170&sr=1-1" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="w-full sm:w-auto bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-xl font-bold shadow-lg shadow-blue-500/25 flex justify-center items-center gap-3 hover:scale-105 transition-transform"
+          >
+            Get it on Amazon <ArrowRight size={20} />
+          </a>
+          <p className="text-sm text-slate-500 italic max-w-[250px] text-center sm:text-left">
+            Build the future of productivity — one automation at a time.
+          </p>
+        </motion.div>
+      </div>
+    </div>
+  </section>
+);
+
 const Skills = () => {
   const skills = [
     "Digital Transformation", "Agile Leadership", "AI & Automation", 
@@ -318,6 +420,7 @@ export default function App() {
         <Hero />
         <About />
         <Achievements />
+        <BookSection />
         <Skills />
         <Contact />
       </main>
