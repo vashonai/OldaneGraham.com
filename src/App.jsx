@@ -156,25 +156,8 @@ const Achievements = () => {
 
   return (
     <section id="impact" className="py-24 max-w-[1200px] mx-auto px-6">
-      <SectionTitle subtitle="Impact">Key Achievements</SectionTitle>
-      <div className="grid md:grid-cols-3 gap-8 mb-20">
-        {items.map((item, idx) => (
-          <motion.div 
-            key={idx}
-            whileHover={{ y: -10 }}
-            className="group p-8 bg-white rounded-xl shadow-sm border-t-4 border-slate-100 hover:border-blue-600 transition-all duration-300 shadow-slate-200/50"
-          >
-            <div className="text-blue-600 mb-6 transition-transform group-hover:scale-110 duration-300">
-              {React.cloneElement(item.icon, { size: 32 })}
-            </div>
-            <h3 className="text-xl font-display font-bold mb-3 text-navy">{item.title}</h3>
-            <p className="text-slate-600 text-sm leading-relaxed">{item.desc}</p>
-          </motion.div>
-        ))}
-      </div>
-
-      <div className="mt-16">
-        <h3 className="text-2xl font-display font-bold text-navy mb-8">Certifications & Credentials</h3>
+      <div className="mb-24">
+        <SectionTitle subtitle="Credentials">Certifications & Credentials</SectionTitle>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {certifications.map((cert, idx) => (
             <motion.div 
@@ -195,6 +178,25 @@ const Achievements = () => {
               <div className="pt-4 border-t border-slate-100 mt-auto">
                 <p className="text-xs font-medium text-slate-400">{cert.date}</p>
               </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+
+      <div>
+        <SectionTitle subtitle="Impact">Key Achievements</SectionTitle>
+        <div className="grid md:grid-cols-3 gap-8">
+          {items.map((item, idx) => (
+            <motion.div 
+              key={idx}
+              whileHover={{ y: -10 }}
+              className="group p-8 bg-white rounded-xl shadow-sm border-t-4 border-slate-100 hover:border-blue-600 transition-all duration-300 shadow-slate-200/50"
+            >
+              <div className="text-blue-600 mb-6 transition-transform group-hover:scale-110 duration-300">
+                {React.cloneElement(item.icon, { size: 32 })}
+              </div>
+              <h3 className="text-xl font-display font-bold mb-3 text-navy">{item.title}</h3>
+              <p className="text-slate-600 text-sm leading-relaxed">{item.desc}</p>
             </motion.div>
           ))}
         </div>
