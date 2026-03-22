@@ -542,6 +542,46 @@ const Skills = () => {
   );
 };
 
+const ToolsSection = () => {
+  const tools = [
+    { name: "Linear", image: "/tools/linear.svg" },
+    { name: "Jira", image: "/tools/jira.svg" },
+    { name: "MS Project", image: "/tools/ms-project.png" },
+    { name: "GanttPRO", image: "/tools/ganttpro.png" },
+    { name: "Eraser.io", image: "/tools/eraser-io.png" },
+    { name: "Mural", image: "/tools/mural.svg" },
+    { name: "Cursor", image: "/tools/cursor.png" },
+    { name: "Github", image: "/tools/github.svg" },
+    { name: "Figma", image: "/tools/figma.svg" },
+    { name: "Confluence", image: "/tools/confluence.svg" }
+  ];
+
+  return (
+    <section id="tools" className="py-24 bg-white">
+      <div className="max-w-[1200px] mx-auto px-6">
+        <SectionTitle subtitle="Tech Stack">Tools & Software</SectionTitle>
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+          {tools.map((tool, idx) => (
+            <motion.div 
+              key={idx}
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: idx * 0.05 }}
+              className="flex flex-col items-center justify-center p-8 bg-white rounded-xl border border-slate-200 hover:border-blue-400 hover:shadow-lg transition-all group"
+            >
+              <div className="w-16 h-16 mb-4 flex items-center justify-center">
+                <img src={tool.image} alt={tool.name} className="max-w-full max-h-full object-contain filter group-hover:scale-110 transition-transform duration-300 drop-shadow-sm" />
+              </div>
+              <h4 className="font-semibold text-navy text-sm text-center">{tool.name}</h4>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
 const Contact = () => (
   <section
     id="connect"
@@ -613,6 +653,7 @@ export default function App() {
         <Hero />
         <About />
         <Skills />
+        <ToolsSection />
         <Achievements />
         <BookSection />
         <Contact />
