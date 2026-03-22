@@ -94,15 +94,54 @@ const Hero = () => (
     <motion.div 
       initial={{ opacity: 0, scale: 0.9 }}
       animate={{ opacity: 1, scale: 1 }}
-      className="w-full md:w-2/5 order-1 md:order-2 relative"
+      className="w-full md:w-2/5 order-1 md:order-2 relative mt-16 md:mt-0 flex justify-center items-end"
     >
-      <div className="absolute -inset-4 bg-gradient-to-br from-blue-600 to-purple-600 opacity-10 rounded-[2rem] rotate-3 animate-pulse" />
-      <div className="relative z-10 rounded-tr-[100px] rounded-bl-[40px] rounded-tl-xl rounded-br-xl overflow-hidden shadow-2xl bg-slate-200 aspect-[4/5]">
+      <div className="relative w-full max-w-[340px] flex justify-center items-end pt-20">
+        
+        {/* Centered Blue Circle Background */}
+        <div className="absolute bottom-0 w-[105%] aspect-square bg-blue-600 rounded-full shadow-2xl translate-y-2" />
+        
+        {/* Protruding Foreground Subject (Transparent PNG) */}
+        {/* Without the grey background, the transparent image naturally creates the cutout effect. */}
         <img 
-          src="/oldane-graham.jpg" 
+          src="/oldane-graham-nobg.png" 
           alt="Oldane Graham" 
-          className="object-cover w-full h-full grayscale hover:grayscale-0 transition-all duration-700"
+          className="relative z-10 w-full h-auto object-contain object-bottom grayscale hover:grayscale-0 transition-all duration-700 rounded-b-[200px] drop-shadow-2xl"
         />
+
+        {/* Floating Badges */}
+        <motion.div 
+          initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.3, duration: 0.5 }}
+          className="absolute bg-white px-3 py-2 rounded-xl shadow-lg flex items-center gap-2.5 z-20 
+                     -right-4 top-12 md:-right-8 lg:-right-12"
+        >
+          <div className="w-6 h-6 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center">
+            <BookOpen size={12} />
+          </div>
+          <div className="font-bold text-navy text-[11px] uppercase tracking-wide whitespace-nowrap">Author</div>
+        </motion.div>
+
+        <motion.div 
+          initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.5, duration: 0.5 }}
+          className="absolute bg-white px-3 py-2 rounded-xl shadow-lg flex items-center gap-2.5 z-20 
+                     -left-4 bottom-[45%] md:-left-8 lg:-left-12"
+        >
+          <div className="w-6 h-6 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center">
+            <Users size={12} />
+          </div>
+          <div className="font-bold text-navy text-[11px] uppercase tracking-wide whitespace-nowrap">Project Manager</div>
+        </motion.div>
+
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.7, duration: 0.5 }}
+          className="absolute bg-white px-3 py-2 rounded-xl shadow-lg flex items-center gap-2.5 z-20 
+                     bottom-2 right-2 md:bottom-0 lg:-bottom-2 lg:-right-4"
+        >
+          <div className="w-6 h-6 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center">
+            <TrendingUp size={12} />
+          </div>
+          <div className="font-bold text-navy text-[11px] uppercase tracking-wide whitespace-nowrap">Agile Leader</div>
+        </motion.div>
       </div>
     </motion.div>
   </section>
