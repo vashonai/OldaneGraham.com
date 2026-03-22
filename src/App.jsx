@@ -99,7 +99,7 @@ const Hero = () => (
       <div className="absolute -inset-4 bg-gradient-to-br from-blue-600 to-purple-600 opacity-10 rounded-[2rem] rotate-3 animate-pulse" />
       <div className="relative z-10 rounded-tr-[100px] rounded-bl-[40px] rounded-tl-xl rounded-br-xl overflow-hidden shadow-2xl bg-slate-200 aspect-[4/5]">
         <img 
-          src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=800" 
+          src="/oldane-graham.jpg" 
           alt="Oldane Graham" 
           className="object-cover w-full h-full grayscale hover:grayscale-0 transition-all duration-700"
         />
