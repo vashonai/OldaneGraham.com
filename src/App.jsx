@@ -184,13 +184,13 @@ const Achievements = () => {
   ];
 
   const certifications = [
-    { title: "Talking to AI: Prompt Engineering for Project Managers", issuer: "Project Management Institute", date: "Issued Jul 20, 2023" },
-    { title: "Make Foundation", issuer: "Make", date: "Issued May 9, 2024" },
-    { title: "Practical Application of Gen AI for Project Managers", issuer: "Project Management Institute", date: "Issued Mar 26, 2024" },
-    { title: "Global Young Crew Workshop 2022 Participant", issuer: "International Project Management...", date: "Issued Dec 29, 2022" },
-    { title: "PMI Agile Certified Practitioner (PMI-ACP)®", issuer: "Project Management Institute", date: "Expires Jul 10, 2027" },
-    { title: "Project Management Professional (PMP)®", issuer: "Project Management Institute", date: "Expires Jun 29, 2026" },
-    { title: "Professional Scrum Master™ I (PSM I)", issuer: "Scrum.org", date: "Issued May 2, 2020" }
+    { title: "Talking to AI: Prompt Engineering for Project Managers", issuer: "Project Management Institute", date: "Issued Jul 20, 2023", image: "/badges/prompt-engineering.png" },
+    { title: "Make Foundation", issuer: "Make", date: "Issued May 9, 2024", image: "/badges/make-foundation.png" },
+    { title: "Practical Application of Gen AI for Project Managers", issuer: "Project Management Institute", date: "Issued Mar 26, 2024", image: "/badges/practical-gen-ai.png" },
+    { title: "Global Young Crew Workshop 2022 Participant", issuer: "International Project Management Association", date: "Issued Dec 29, 2022", image: "/badges/global-young-crew.png" },
+    { title: "PMI Agile Certified Practitioner (PMI-ACP)®", issuer: "Project Management Institute", date: "Expires Jul 10, 2027", image: "/badges/pmi-acp.png" },
+    { title: "Project Management Professional (PMP)®", issuer: "Project Management Institute", date: "Expires Jun 29, 2026", image: "/badges/pmp.png" },
+    { title: "Professional Scrum Master™ I (PSM I)", issuer: "Scrum.org", date: "Issued May 2, 2020", image: "/badges/psm-i.png" }
   ];
 
   return (
@@ -208,8 +208,8 @@ const Achievements = () => {
               className="flex flex-col p-6 bg-white rounded-xl border border-slate-200 hover:border-blue-400 hover:shadow-lg transition-all"
             >
               <div className="flex-1">
-                <div className="w-16 h-16 bg-blue-50 text-blue-600 rounded-full flex items-center justify-center mb-6 mx-auto">
-                  <Award size={28} />
+                <div className="w-24 h-24 mb-6 mx-auto flex items-center justify-center">
+                  <img src={cert.image} alt={cert.title} className="max-w-full max-h-full object-contain drop-shadow-md hover:scale-105 transition-transform duration-300" />
                 </div>
                 <h4 className="font-semibold text-navy text-sm leading-snug mb-2">{cert.title}</h4>
                 <p className="text-xs text-slate-500 mb-4">{cert.issuer}</p>
