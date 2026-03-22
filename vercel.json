@@ -1,5 +1,7 @@
 {
-  "buildCommand": "cd my-bio-site && npm install && npm run build",
-  "outputDirectory": "my-bio-site/dist",
-  "framework": "vite"
+  "installCommand": "npm install",
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "framework": "vite",
+  "rootDirectory": "my-bio-site"
 }
