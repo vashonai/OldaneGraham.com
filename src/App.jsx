@@ -113,7 +113,7 @@ const Hero = () => (
         <motion.div 
           initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.3, duration: 0.5 }}
           className="absolute bg-white px-3 py-2 rounded-xl shadow-lg flex items-center gap-2.5 z-20 
-                     -right-4 top-12 md:-right-8 lg:-right-12"
+                     -right-[5%] top-[35%]"
         >
           <div className="w-6 h-6 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center">
             <BookOpen size={12} />
@@ -124,7 +124,7 @@ const Hero = () => (
         <motion.div 
           initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.5, duration: 0.5 }}
           className="absolute bg-white px-3 py-2 rounded-xl shadow-lg flex items-center gap-2.5 z-20 
-                     -left-4 bottom-[45%] md:-left-8 lg:-left-12"
+                     -left-[10%] bottom-[25%]"
         >
           <div className="w-6 h-6 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center">
             <Users size={12} />
@@ -135,7 +135,7 @@ const Hero = () => (
         <motion.div 
           initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.7, duration: 0.5 }}
           className="absolute bg-white px-3 py-2 rounded-xl shadow-lg flex items-center gap-2.5 z-20 
-                     bottom-2 right-2 md:bottom-0 lg:-bottom-2 lg:-right-4"
+                     right-[5%] bottom-[5%]"
         >
           <div className="w-6 h-6 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center">
             <TrendingUp size={12} />
