@@ -220,6 +220,22 @@ const Achievements = () => {
             </motion.div>
           ))}
         </div>
+        
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mt-12 flex justify-center"
+        >
+          <a 
+            href="https://www.credly.com/users/oldane-graham/badges"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group flex items-center gap-2 px-8 py-4 bg-white text-navy font-semibold rounded-xl border-2 border-slate-200 hover:border-blue-600 hover:text-blue-600 transition-all shadow-sm hover:shadow-md"
+          >
+            View all on Credly <ArrowRight size={18} className="transform group-hover:translate-x-1 transition-transform" />
+          </a>
+        </motion.div>
       </div>
 
       <div>
