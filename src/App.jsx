@@ -144,10 +144,20 @@ const Achievements = () => {
     { icon: <TrendingUp />, title: "Enterprise Delivery", desc: "Drove AI-enabled delivery across telecom, banking, and fintech sectors, transforming complex technology projects into scalable solutions." }
   ];
 
+  const certifications = [
+    { title: "Talking to AI: Prompt Engineering for Project Managers", issuer: "Project Management Institute", date: "Issued Jul 20, 2023" },
+    { title: "Make Foundation", issuer: "Make", date: "Issued May 9, 2024" },
+    { title: "Practical Application of Gen AI for Project Managers", issuer: "Project Management Institute", date: "Issued Mar 26, 2024" },
+    { title: "Global Young Crew Workshop 2022 Participant", issuer: "International Project Management...", date: "Issued Dec 29, 2022" },
+    { title: "PMI Agile Certified Practitioner (PMI-ACP)®", issuer: "Project Management Institute", date: "Expires Jul 10, 2027" },
+    { title: "Project Management Professional (PMP)®", issuer: "Project Management Institute", date: "Expires Jun 29, 2026" },
+    { title: "Professional Scrum Master™ I (PSM I)", issuer: "Scrum.org", date: "Issued May 2, 2020" }
+  ];
+
   return (
     <section id="impact" className="py-24 max-w-[1200px] mx-auto px-6">
       <SectionTitle subtitle="Impact">Key Achievements</SectionTitle>
-      <div className="grid md:grid-cols-3 gap-8">
+      <div className="grid md:grid-cols-3 gap-8 mb-20">
         {items.map((item, idx) => (
           <motion.div 
             key={idx}
@@ -161,6 +171,33 @@ const Achievements = () => {
             <p className="text-slate-600 text-sm leading-relaxed">{item.desc}</p>
           </motion.div>
         ))}
+      </div>
+
+      <div className="mt-16">
+        <h3 className="text-2xl font-display font-bold text-navy mb-8">Certifications & Credentials</h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {certifications.map((cert, idx) => (
+            <motion.div 
+              key={idx}
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: idx * 0.05 }}
+              className="flex flex-col p-6 bg-white rounded-xl border border-slate-200 hover:border-blue-400 hover:shadow-lg transition-all"
+            >
+              <div className="flex-1">
+                <div className="w-16 h-16 bg-blue-50 text-blue-600 rounded-full flex items-center justify-center mb-6 mx-auto">
+                  <Award size={28} />
+                </div>
+                <h4 className="font-semibold text-navy text-sm leading-snug mb-2">{cert.title}</h4>
+                <p className="text-xs text-slate-500 mb-4">{cert.issuer}</p>
+              </div>
+              <div className="pt-4 border-t border-slate-100 mt-auto">
+                <p className="text-xs font-medium text-slate-400">{cert.date}</p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );
