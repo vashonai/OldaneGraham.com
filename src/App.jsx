@@ -518,25 +518,31 @@ const Skills = () => {
       </div>
 
       {/* Infinite Marquee */}
-      <div className="relative w-full flex overflow-hidden group py-4">
-        {/* Left/Right Fade out gradient for smoother edges */}
-        <div className="absolute top-0 left-0 w-24 md:w-48 h-full z-10 pointer-events-none bg-gradient-to-r from-offwhite to-transparent" />
-        <div className="absolute top-0 right-0 w-24 md:w-48 h-full z-10 pointer-events-none bg-gradient-to-l from-offwhite to-transparent" />
+      <div className="relative w-full overflow-hidden py-4">
+        {/* Transparent gradient masks for smooth edge fading */}
+        <div className="absolute inset-y-0 left-0 w-16 md:w-64 bg-gradient-to-r from-offwhite to-transparent z-10 pointer-events-none"></div>
+        <div className="absolute inset-y-0 right-0 w-16 md:w-64 bg-gradient-to-l from-offwhite to-transparent z-10 pointer-events-none"></div>
 
-        <motion.div
-          animate={{ x: ["0%", "-50%"] }}
-          transition={{ ease: "linear", duration: 40, repeat: Infinity }}
-          className="flex w-max flex-nowrap gap-6 pr-6"
-        >
-          {duplicatedSkills.map((skill, idx) => (
-            <span
-              key={idx}
-              className="px-6 py-3 rounded-full bg-white text-sm font-semibold whitespace-nowrap text-navy shadow-sm"
-            >
-              {skill}
-            </span>
-          ))}
-        </motion.div>
+        <style dangerouslySetInnerHTML={{ __html: `
+          @keyframes marqueeLeft { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+          @keyframes marqueeRight { from { transform: translateX(-50%); } to { transform: translateX(0); } }
+          .animate-marquee-left { animation: marqueeLeft 80s linear infinite; }
+          .animate-marquee-right { animation: marqueeRight 90s linear infinite; }
+          .pause-on-hover:hover { animation-play-state: paused; }
+        `}} />
+        <div className="flex flex-col gap-6 md:gap-8">
+          {/* Marquee Row 1 */}
+          <div className="flex flex-nowrap gap-8 md:gap-16 w-max ml-8 animate-marquee-left pause-on-hover">
+            {duplicatedSkills.map((skill, i) => (
+              <span
+                key={`${skill}-${i}`}
+                className="text-lg sm:text-xl md:text-2xl font-black text-slate-300 tracking-tighter whitespace-nowrap select-none transition-colors duration-300 hover:text-[#2563EB] cursor-pointer"
+              >
+                {skill}
+              </span>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );
