@@ -44,7 +44,7 @@ const Navbar = () => (
       OG<span className="text-blue-600">.</span>
     </div>
     <div className="hidden md:flex space-x-8 font-medium text-xs uppercase tracking-widest text-slate-500">
-      {["About", "Impact", "Expertise", "Connect"].map((item) => (
+      {["About", "Certification", "Tools", "Experience", "Book"].map((item) => (
         <a
           key={item}
           href={`#${item.toLowerCase()}`}
@@ -58,7 +58,7 @@ const Navbar = () => (
 );
 
 const Hero = () => (
-  <section className="max-w-[1200px] mx-auto px-6 pt-12 pb-24 md:pt-20 flex flex-col md:flex-row items-center gap-16 relative">
+  <section className="max-w-[1200px] mx-auto px-6 pt-8 pb-16 md:pt-12 flex flex-col md:flex-row items-center gap-8 relative">
     {/* Abstract Background Shape */}
     <div className="absolute -top-20 -left-20 w-80 h-80 bg-blue-100 rounded-full blur-3xl opacity-40 -z-10" />
 
@@ -74,34 +74,39 @@ const Hero = () => (
         </span>
       </motion.h1>
 
-      <motion.p
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.1 }}
-        className="text-xl md:text-2xl font-light text-slate-600 mt-6 max-w-lg leading-relaxed"
-      >
-        Digital Transformation & Agile Leader driving{" "}
-        <span className="font-semibold text-navy underline decoration-blue-500/30 decoration-4">
-          AI-enabled delivery
-        </span>{" "}
-        across Enterprise, Telecom & Financial sectors.
-      </motion.p>
-
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.15 }}
-        className="flex flex-wrap gap-3 mt-6"
+        transition={{ delay: 0.1 }}
+        className="flex flex-wrap gap-3 mt-6 mb-4"
       >
         {["PMP", "ACP", "PSM-I", "Author"].map((badge) => (
           <span
             key={badge}
-            className="px-3 py-1 bg-blue-50 text-blue-700 text-xs font-semibold rounded-full tracking-wide"
+            className="px-4 py-1.5 bg-blue-50 text-blue-700 text-sm md:text-base font-bold rounded-full tracking-wide"
           >
             {badge}
           </span>
         ))}
       </motion.div>
+
+      <motion.p
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.15 }}
+        className="text-xl md:text-2xl font-light text-slate-600 max-w-lg leading-relaxed space-y-4"
+      >
+        <span className="block">
+          Digital Transformation Consultant and Author specializing in{" "}
+          <span className="font-semibold text-navy underline decoration-blue-500/30 decoration-4">
+            AI-enabled delivery
+          </span>
+          , Agile execution, and enterprise modernization.
+        </span>
+        <span className="block">
+          Helping organizations bridge strategy to execution across Telecom, Financial Services, and global technology ecosystems.
+        </span>
+      </motion.p>
 
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -218,22 +223,19 @@ const About = () => (
 
       <div className="md:col-span-7">
         <SectionTitle subtitle="About Me">
-          Strategy Meets Intelligent Execution
+          Strategy. Execution. Scale.
         </SectionTitle>
         <p className="text-xl font-medium leading-relaxed text-navy mb-6">
-          Digital Transformation Strategist and founder of AgileLab Limited,
-          helping organizations reimagine how they work through automation, AI,
-          and intelligent process design.
+          I am a Digital Transformation Strategist and Founder of AgileLab Limited, enabling organizations to modernize their operations through AI-driven delivery, automation, and intelligent process design.
         </p>
-        <p className="text-slate-600 leading-loose">
-          With over a decade of experience managing complex technology projects
-          across telecom, banking, and fintech sectors, I combine strategic
-          vision with hands-on execution to deliver scalable digital solutions.
-          I'm also the creator of{" "}
-          <span className="font-semibold text-navy">Optify</span>, an AI
-          optimization platform that empowers businesses to streamline workflows
-          and boost productivity.
-        </p>
+        <div className="text-slate-600 leading-loose space-y-4">
+          <p>
+            With 10+ years leading complex initiatives across telecom, banking, and fintech, I specialize in bridging the gap between vision and execution—delivering scalable, high-impact solutions in fast-moving environments. My work is rooted in strong project management discipline, Agile methodologies, and a relentless focus on efficiency and outcomes.
+          </p>
+          <p>
+            As the creator of Optify, I build AI-powered systems that help businesses optimize workflows, reduce manual effort, and operate with precision at scale.
+          </p>
+        </div>
       </div>
 
       <div className="md:col-span-4 relative">
@@ -254,18 +256,47 @@ const Achievements = () => {
   const items = [
     {
       icon: <Cpu />,
-      title: "Optify Platform",
-      desc: "Created an AI optimization platform that empowers businesses to streamline workflows and boost productivity at scale.",
+      title: "Optify Platform – AI-Powered Workflow Optimization",
+      desc: (
+        <div className="space-y-4">
+          <p>Designed and built Optify, an AI-driven optimization platform that enables businesses to streamline workflows, eliminate manual processes, and scale productivity with precision.</p>
+          <p>Leveraging platforms like Make.com and n8n, I architect end-to-end intelligent workflows tailored to each organization&apos;s operations—transforming fragmented processes into seamless, automated systems.</p>
+          <p>From process mapping to deployment, Optify empowers businesses to automate, scale, and innovate with confidence.</p>
+        </div>
+      ),
     },
     {
-      icon: <Globe />,
-      title: "AgileLab Limited",
-      desc: "Founded AgileLab Limited to help organizations reimagine how they work through automation, AI, and intelligent process design.",
+      image: "/Agile-Lab-Logo-01.png",
+      title: "AgileLab – Global Consulting & Delivery Excellence",
+      desc: (
+        <div className="space-y-4">
+          <p>As Founder of AgileLab Limited, I have led consulting engagements across LATAM, the US, Canada, and the Caribbean—delivering enterprise-grade solutions across telecom, fintech, and digital platforms.</p>
+          <p>AgileLab operates at the intersection of strategy, execution, and talent, providing:</p>
+          <ul className="list-disc pl-5 space-y-1">
+            <li>End-to-end project delivery for complex digital initiatives</li>
+            <li>Agile team leadership and transformation</li>
+            <li>Staff augmentation with high-performing technical and product teams</li>
+          </ul>
+          <p className="font-medium text-navy">The focus is simple: build strong teams, deliver consistently, and scale intelligently across markets.</p>
+        </div>
+      ),
     },
     {
       icon: <TrendingUp />,
-      title: "Enterprise Delivery",
-      desc: "Drove AI-enabled delivery across telecom, banking, and fintech sectors, transforming complex technology projects into scalable solutions.",
+      title: "AI-Driven Software Platform Development",
+      desc: (
+        <div className="space-y-4">
+          <p>Led the development of rapid, scalable digital solutions across web and mobile platforms by integrating AI into the core of product delivery.</p>
+          <p>From concept to production, I design and deliver systems across industries including:</p>
+          <ul className="list-disc pl-5 space-y-1">
+            <li>Supply Chain</li>
+            <li>Banking & Fintech</li>
+            <li>HealthTech</li>
+            <li>Enterprise Platforms</li>
+          </ul>
+          <p>By leveraging modern AI tooling and flexible tech stacks, I enable organizations to build faster, adapt quicker, and operate smarter—without being constrained by traditional development cycles.</p>
+        </div>
+      ),
     },
   ];
 
@@ -315,8 +346,8 @@ const Achievements = () => {
   ];
 
   return (
-    <section id="impact" className="py-24 max-w-[1200px] mx-auto px-6">
-      <div className="mb-24">
+    <section className="py-24 max-w-[1200px] mx-auto px-6">
+      <div id="certification" className="mb-24 scroll-mt-24">
         <SectionTitle subtitle="Credentials">
           Certifications & Credentials
         </SectionTitle>
@@ -373,24 +404,31 @@ const Achievements = () => {
         </motion.div>
       </div>
 
-      <div>
-        <SectionTitle subtitle="Impact">Key Achievements</SectionTitle>
-        <div className="grid md:grid-cols-3 gap-8">
+      <div id="experience" className="scroll-mt-24">
+        <SectionTitle subtitle="Experience">Key Achievements</SectionTitle>
+        <p className="text-xl md:text-2xl text-slate-600 font-light mb-12 max-w-4xl leading-relaxed">
+          Across every initiative, the mission remains consistent: turn complexity into clarity, and ideas into scalable execution.
+        </p>
+        <div className="grid lg:grid-cols-3 gap-8">
           {items.map((item, idx) => (
             <motion.div
               key={idx}
               whileHover={{ y: -10 }}
-              className="group p-8 bg-white rounded-xl shadow-sm border-t-4 border-slate-100 hover:border-blue-600 transition-all duration-300 shadow-slate-200/50"
+              className="group p-8 bg-white rounded-xl shadow-sm border-t-4 border-slate-100 hover:border-blue-600 transition-all duration-300 shadow-slate-200/50 flex flex-col"
             >
-              <div className="text-blue-600 mb-6 transition-transform group-hover:scale-110 duration-300">
-                {React.cloneElement(item.icon, { size: 32 })}
+              <div className="text-blue-600 mb-6 transition-transform group-hover:scale-110 duration-300 max-h-12 w-auto">
+                {item.image ? (
+                  <img src={item.image} alt={item.title} className="h-10 w-auto object-contain" />
+                ) : (
+                  item.icon && React.cloneElement(item.icon, { size: 32 })
+                )}
               </div>
-              <h3 className="text-xl font-display font-bold mb-3 text-navy">
+              <h3 className="text-xl font-display font-bold mb-5 text-navy leading-snug">
                 {item.title}
               </h3>
-              <p className="text-slate-600 text-sm leading-relaxed">
+              <div className="text-slate-600 text-sm leading-relaxed flex-1">
                 {item.desc}
-              </p>
+              </div>
             </motion.div>
           ))}
         </div>
