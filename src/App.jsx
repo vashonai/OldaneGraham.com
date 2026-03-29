@@ -115,9 +115,13 @@ const Hero = () => (
         className="flex flex-col gap-4 mt-10 inline-flex items-start md:items-center xl:items-start"
       >
         <div className="flex flex-wrap gap-4 justify-start md:justify-center xl:justify-start">
-          <button className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-xl font-semibold shadow-lg shadow-blue-500/25 flex items-center gap-2 hover:scale-105 transition-transform">
+          <a
+            href="/Oldane Graham Resume .pdf"
+            download
+            className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-xl font-semibold shadow-lg shadow-blue-500/25 flex items-center gap-2 hover:scale-105 transition-transform"
+          >
             Download CV <Download size={18} />
-          </button>
+          </a>
           <a
             href="https://linkedin.com/in/oldane-graham"
             target="_blank"
