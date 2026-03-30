@@ -257,24 +257,30 @@ const About = () => (
 );
 
 const Achievements = () => {
+  const [expandedCards, setExpandedCards] = React.useState({});
+
+  const toggleCard = (idx) => {
+    setExpandedCards((prev) => ({ ...prev, [idx]: !prev[idx] }));
+  };
+
   const items = [
     {
       icon: <Cpu />,
       title: "Optify Platform – AI-Powered Workflow Optimization",
-      desc: (
-        <div className="space-y-4">
-          <p>Designed and built Optify, an AI-driven optimization platform that enables businesses to streamline workflows, eliminate manual processes, and scale productivity with precision.</p>
+      summary: "Designed and built Optify, an AI-driven optimization platform that enables businesses to streamline workflows, eliminate manual processes, and scale productivity with precision.",
+      details: (
+        <>
           <p>Leveraging platforms like Make.com and n8n, I architect end-to-end intelligent workflows tailored to each organization&apos;s operations—transforming fragmented processes into seamless, automated systems.</p>
           <p>From process mapping to deployment, Optify empowers businesses to automate, scale, and innovate with confidence.</p>
-        </div>
+        </>
       ),
     },
     {
       image: "/Agile-Lab-Logo-01.png",
       title: "AgileLab – Global Consulting & Delivery Excellence",
-      desc: (
-        <div className="space-y-4">
-          <p>As Founder of AgileLab Limited, I have led consulting engagements across LATAM, the US, Canada, and the Caribbean—delivering enterprise-grade solutions across telecom, fintech, and digital platforms.</p>
+      summary: "As Founder of AgileLab Limited, I have led consulting engagements across LATAM, the US, Canada, and the Caribbean—delivering enterprise-grade solutions across telecom, fintech, and digital platforms.",
+      details: (
+        <>
           <p>AgileLab operates at the intersection of strategy, execution, and talent, providing:</p>
           <ul className="list-disc pl-5 space-y-1">
             <li>End-to-end project delivery for complex digital initiatives</li>
@@ -282,15 +288,15 @@ const Achievements = () => {
             <li>Staff augmentation with high-performing technical and product teams</li>
           </ul>
           <p className="font-medium text-navy">The focus is simple: build strong teams, deliver consistently, and scale intelligently across markets.</p>
-        </div>
+        </>
       ),
     },
     {
       icon: <TrendingUp />,
       title: "AI-Driven Software Platform Development",
-      desc: (
-        <div className="space-y-4">
-          <p>Led the development of rapid, scalable digital solutions across web and mobile platforms by integrating AI into the core of product delivery.</p>
+      summary: "Led the development of rapid, scalable digital solutions across web and mobile platforms by integrating AI into the core of product delivery.",
+      details: (
+        <>
           <p>From concept to production, I design and deliver systems across industries including:</p>
           <ul className="list-disc pl-5 space-y-1">
             <li>Supply Chain</li>
@@ -299,10 +305,15 @@ const Achievements = () => {
             <li>Enterprise Platforms</li>
           </ul>
           <p>By leveraging modern AI tooling and flexible tech stacks, I enable organizations to build faster, adapt quicker, and operate smarter—without being constrained by traditional development cycles.</p>
-        </div>
+        </>
       ),
     },
   ];
+
+  const expandedCount = Object.values(expandedCards).filter(Boolean).length;
+  const isAllCollapsed = expandedCount === 0;
+  const isAllExpanded = expandedCount === items.length;
+  const shouldStretch = isAllCollapsed || isAllExpanded;
 
   const certifications = [
     {
@@ -413,12 +424,12 @@ const Achievements = () => {
         <p className="text-xl md:text-2xl text-slate-600 font-light mb-12 max-w-4xl leading-relaxed">
           Across every initiative, the mission remains consistent: turn complexity into clarity, and ideas into scalable execution.
         </p>
-        <div className="grid lg:grid-cols-3 gap-8">
+        <div className={`grid lg:grid-cols-3 gap-8 ${shouldStretch ? "items-stretch" : "items-start"}`}>
           {items.map((item, idx) => (
             <motion.div
               key={idx}
               whileHover={{ y: -10 }}
-              className="group p-8 bg-white rounded-xl shadow-sm border-t-4 border-slate-100 hover:border-blue-600 transition-all duration-300 shadow-slate-200/50 flex flex-col"
+              className="group p-8 bg-white rounded-none shadow-sm border-t-4 border-slate-100 hover:border-blue-600 transition-all duration-300 shadow-slate-200/50 flex flex-col"
             >
               <div className="text-blue-600 mb-6 transition-transform group-hover:scale-110 duration-300 max-h-12 w-auto">
                 {item.image ? (
@@ -430,8 +441,20 @@ const Achievements = () => {
               <h3 className="text-xl font-display font-bold mb-5 text-navy leading-snug">
                 {item.title}
               </h3>
-              <div className="text-slate-600 text-sm leading-relaxed flex-1">
-                {item.desc}
+              <div className="text-slate-600 text-sm leading-relaxed flex-1 flex flex-col">
+                <div className="space-y-4">
+                  <p>{item.summary}</p>
+                  {expandedCards[idx] && item.details}
+                </div>
+                <div className="mt-6 mt-auto self-start">
+                  <button
+                    onClick={() => toggleCard(idx)}
+                    className="flex items-center gap-2 text-blue-600 font-semibold hover:text-blue-700 transition-colors uppercase tracking-wider text-xs"
+                  >
+                    {expandedCards[idx] ? "Show Less" : "Read More"}
+                    <ArrowRight size={14} className={`transform transition-transform ${expandedCards[idx] ? "rotate-[270deg]" : ""}`} />
+                  </button>
+                </div>
               </div>
             </motion.div>
           ))}
