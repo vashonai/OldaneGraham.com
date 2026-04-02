@@ -431,11 +431,11 @@ const Achievements = () => {
               whileHover={{ y: -10 }}
               className="group p-8 bg-white rounded-none shadow-sm border-t-4 border-slate-100 hover:border-blue-600 transition-all duration-300 shadow-slate-200/50 flex flex-col"
             >
-              <div className="text-blue-600 mb-6 transition-transform group-hover:scale-110 duration-300 max-h-12 w-auto">
+              <div className="text-blue-600 mb-6 transition-transform group-hover:scale-110 duration-300 w-auto">
                 {item.image ? (
-                  <img src={item.image} alt={item.title} className="h-10 w-auto object-contain" />
+                  <img src={item.image} alt={item.title} className="h-20 w-auto object-contain" />
                 ) : (
-                  item.icon && React.cloneElement(item.icon, { size: 32 })
+                  item.icon && React.cloneElement(item.icon, { size: 36 })
                 )}
               </div>
               <h3 className="text-xl font-display font-bold mb-5 text-navy leading-snug">
@@ -698,7 +698,7 @@ const Footer = () => (
   <footer className="max-w-[1200px] mx-auto px-6 py-12 border-t border-slate-100 flex flex-col md:flex-row justify-between items-center gap-6 text-slate-400 text-sm">
     <p>&copy; {new Date().getFullYear()} Oldane Graham. All rights reserved.</p>
     <div className="flex gap-8">
-      <a href="#" className="hover:text-navy transition-colors">
+      <a href="https://www.agilelabhq.com" target="_blank" rel="noopener noreferrer" className="hover:text-navy transition-colors">
         AgileLab
       </a>
       <a href="#" className="hover:text-navy transition-colors">
